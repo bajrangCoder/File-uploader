@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=Edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>HTML</title>
+        <title>Uploader</title>
 </head>
 
 <body>
@@ -36,9 +36,9 @@
         </style>
         Image name <input type="text" id="namebox" /><br /><br />
         <img id="myimg" /><label id="UpProgress"></label><br /><br />
-        <button id="select">Select Image</button>
-        <button id="upload">Upload Image</button>
-        <button id="retrieve">Retrieve Image</button>
+        <button id="select">Select Video</button>
+        <button id="upload">Upload Video</button>
+        <button id="retrieve">Retrieve Video</button>
         <!--------------------------FIREBASE LIBRARIES-------------------------------->
         <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
@@ -83,15 +83,15 @@
                 //-----------------------UPLOAD PROCESS------------------------------------//
                 document.getElementById('upload').onclick = function() {
                         ImgName = document.getElementById('namebox').value;
-                        var uploadTask = firebase.storage().ref('Images/' + ImgName + ".png").put(files[0]);
+                        var uploadTask = firebase.storage().ref('Videos/' + ImgName + ".mp4").put(files[0]);
 
                         uploadTask.on('state_changed', function(snapshot) {
                                         var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                                        document.getElementById('UpProgress').innerHTML = 'Upload' + progress + '%';
+                                        document.getElementById('UpProgress').innerHTML = 'Upload ' + progress + '%';
                                 },
 
                                 function(error) {
-                                        alert('error in saving the image');
+                                        alert('error in uploading the video');
                                 },
 
                                 function() {
@@ -102,7 +102,7 @@
                                                         Name: ImgName,
                                                         Link: ImgUrl
                                                 });
-                                                alert('image added successfully');
+                                                alert('video uploaded successfully');
                                         });
                                 });
                 }
