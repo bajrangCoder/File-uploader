@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>HTML</title>
+        
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script >
+</head>
+
+<body>
+        <style type="text/css">
+                body {
+                        justify-content: center;
+                        align-items: center;
+                        background: #0b1522;
+                        min-height: 100vh;
+                        display: flex;
+                }
+
+                .content {
+                        align-items: center;
+                        justify-content: center;
+                        background: #fff;
+                        padding: 30px;
+                        border-radius: 8px;
+                        background: #ff5235;
+                }
+
+                #nameI {
+                        background: #2196f3;
+                        width: 70px;
+                        padding: 7px 7px;
+                        border-top-left-radius: 4px;
+                        border-bottom-left-radius: 4px;
+                        display: inline-block;
+                        color: #fff;
+                        font-weight: bold;
+                        font-size: 13px;
+                        align-items: center;
+                        text-align: center;
+                        float: left;
+                }
+
+                #namebox {
+                        display: inline-block;
+                        width: 150px;
+                        padding: 13.5px 7px;
+                        border: 2px solid #2196f3;
+                        outline: none;
+                        background: #fff;
+                        font-size: 13px;
+                        color: #2196f3;
+                        float: left;
+                }
+
+                video {
+                        height: 200px;
+                        width: 200px;
+                        border: 2px solid black;
+                        background: #fff;
+                }
+
+                #select {
+                        background: blue;
+                        border: 3px solid blue;
+                        padding: 12px;
+                        border-radius: 5px;
+                        color: #fff;
+                        font-weight: bold;
+                        font-size: 15px;
+                        margin: 5px 5px;
+                }
+
+                #select:hover {
+                        background: none;
+                        border: 3px solid blue;
+                        color: blue;
+                        outline: none;
+                }
+
+                #upload {
+                        background: green;
+                        border: 3px solid green;
+                        padding: 12px;
+                        border-radius: 5px;
+                        color: #fff;
+                        font-weight: bold;
+                        font-size: 15px;
+                        margin: 5px 5px;
+                }
+
+                #upload:hover {
+                        background: none;
+                        border: 3px solid green;
+                        color: green;
+                }
+
+                #retrieve {
+                        background: red;
+                        border: 3px solid red;
+                        padding: 12px;
+                        border-radius: 5px;
+                        color: #fff;
+                        font-weight: bold;
+                        font-size: 15px;
+                        margin: 5px 5px;
+                }
+
+                #retrieve:hover {
+                        background: none;
+                        border: 3px solid red;
+                        color: red;
+                        outline: none;
+                }
+
+                #UpProgress {
+                        color: #2196f3;
+                        padding: 7px 7px;
+                        font-weight: bold;
+                        font-size: 13px;
+                        border-right: 4px;
+                        margin: 5px 5px;
+                }
+
+                #linktext {
+                        background: #2196f3;
+                        width: 50px;
+                        padding: 9px 7px;
+                        border-top-left-radius: 4px;
+                        border-bottom-left-radius: 4px;
+                        display: inline-block;
+                        color: #fff;
+                        font-weight: bold;
+                        font-size: 13px;
+                }
+
+                #link {
+                        display: inline-block;
+                        width: 100px;
+                        padding: 7px 7px;
+                        border: 2px solid #2196f3;
+                        outline: none;
+                        background: #fff;
+                        font-size: 13px;
+                        color: #2196f3;
+                }
+
+                #copy{
+                        display: inline-block;
+                        width: 50px;
+                        padding: 7px 7px;
+                        background: #2196f3;
+                        border: 2px solid #2196f3;
+                        border-top-right-radius: 4px;
+                        border-bottom-right-radius: 4px;
+                        font-size: 13px;
+                        font-weight: bold;
+                        color: #fff;
+                        outline: none;
+
+                }
+
+        </style>
+        <center>
+                <div class="content">
+                <span id="nameI">Video name :</span><input type="text" id="namebox" placeholder="Enter the name of video.." /><br /><br /><br />
+                <video id="myimg"></video><br />
+                <span id="UpProgress"></span>
+                <br /><br />
+                <button id="select">Select Video</button>
+                <button id="upload">Upload Video</button>
+                <br /><br />
+                <span id="linktext">Link :</span><input id="link" placeholder="Your link appears here.."><button id="copy"><i class="far fa-copy"></i></button>
+                </div>
+
+        <!--<button id="retrieve">Retrieve Video</button>-->
+        <!--------------------------FIREBASE LIBRARIES-------------------------------->
+        <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-storage.js"></script>
+        <script id="MainScript">
+                //-----------------VARIABLES-----------------//
+                var ImgName, ImgUrl;
+                var files = [];
+                var reader = new FileReader();
+
+                //----------------CONFIGURATION------------------//
+                var firebaseConfig = {
+                        apiKey: "AIzaSyCHjcXg1N6bQlXGMQa8uB7rDjBhEDX0r6s",
+                        authDomain: "fir-javas-a282c.firebaseapp.com",
+                        databaseURL: "https://fir-javas-a282c-default-rtdb.firebaseio.com",
+                        projectId: "fir-javas-a282c",
+                        storageBucket: "fir-javas-a282c.appspot.com",
+                        messagingSenderId: "507372768409",
+                        appId: "1:507372768409:web:3bf174c1d02c5dc13a7c08"
+                };
+                // Initialize Firebase
+                firebase.initializeApp(firebaseConfig);
+
+                //---------------------SELECTION PROCESS---------------------------------//
+                document.getElementById("select").onclick = function(e) {
+
+                        var input = document.createElement('input');
+                        input.type = 'file';
+
+                        input.onchange = e => {
+                                files = e.target.files;
+                                reader = new FileReader();
+                                reader.onload = function() {
+                                        document.getElementById("myimg").src = reader.result;
+                                }
+                                reader.readAsDataURL(files[0]);
+                        }
+                        input.click();
+                }
+
+                //-----------------------UPLOAD PROCESS------------------------------------//
+                document.getElementById('upload').onclick = function() {
+                        ImgName = document.getElementById('namebox').value;
+                        var uploadTask = firebase.storage().ref('Videos/' + ImgName + ".mp4").put(files[0]);
+
+                        uploadTask.on('state_changed', function(snapshot) {
+                                        var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                                        document.getElementById('UpProgress').innerHTML = 'Uploaded : ' + progress + '%';
+                        },
+    
+                                function(error) {
+                                        alert('error in uploading the video');
+                                },
+
+                                function() {
+                                        uploadTask.snapshot.ref.getDownloadURL().then(function(url) {
+                                                ImgUrl = url;
+
+                                                firebase.database().ref('Videos/' + ImgName).set({
+                                                        Name: ImgName,
+                                                        Link: ImgUrl
+                                                });
+                                                alert('video uploaded successfully');
+                                                document.getElementById('link').value = ImgUrl ;
+                                        });
+                                });
+                }
+                
+                //-----------------------------Retrival Process----------------------//
+                //document.getElementById('retrieve').onclick = function(){
+                       // ImgName = document.getElementById('namebox').value;
+                       // firebase.database().ref('Pictures/' +ImgName).on('value', function(snapshot){
+                               // document.getElementById('myimg').src = snapshot.val().Link;
+                      //  });
+                //}
+                //-----------------------COPY PROCESS------------------------------//
+                document.getElementById("copy").onclick = function() {
+
+                        var copyText = document.getElementById('link');
+
+                        copyText.select();
+                        if(document.execCommand("copy")){
+                                alert('Copied!');
+                        }else{
+                                alert('Not Copied!');
+                        }
+                }
+                
+                
+        </script>
+</body>
+
+</html>
