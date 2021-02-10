@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>HTML</title>
+        
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+        <style type="text/css">
+                body {
+                        justify-content: center;
+                        align-items: center;
+                        background: url(Bg.gif);
+                        min-height: 100vh;
+                        display: flex;
+                }
+
+                .content {
+                        align-items: center;
+                        justify-content: center;
+                        background: #fff;
+                        padding: 30px;
+                        border-radius: 8px;
+                        background: linear-gradient(#7dbcfc, #c635ea);
+                }
+
+                #nameI {
+                        background: #2196f3;
+                        width: 70px;
+                        padding: 7px 7px;
+                        border-top-left-radius: 4px;
+                        border-bottom-left-radius: 4px;
+                        display: inline-block;
+                        color: #fff;
+                        font-weight: bold;
+                        font-size: 13px;
+                        align-items: center;
+                        text-align: center;
+                        float: left;
+                }
+
+                #namebox {
+                        display: inline-block;
+                        width: 150px;
+                        padding: 13.5px 7px;
+                        border: 2px solid #2196f3;
+                        outline: none;
+                        background: #fff;
+                        font-size: 13px;
+                        color: #2196f3;
+                }
+                #exename{
+                        display: inline-block;
+                        width: 30px;
+                        padding: 13.5px 7px;
+                        border: 2px solid #2196f3;
+                        outline: none;
+                        background: #fff;
+                        font-size: 13px;
+                        color: #2196f3;
+               
+                }
+
+                #myimg{
+                        height: 200px;
+                        width: 200px;
+                        border: 2px solid black;
+                        background: #fff;
+                }
+
+                #select {
+                        background: blue;
+                        border: 3px solid blue;
+                        padding: 12px;
+                        border-radius: 5px;
+                        color: #fff;
+                        font-weight: bold;
+                        font-size: 15px;
+                        margin: 5px 5px;
+                }
+
+                #select:hover {
+                        background: none;
+                        border: 3px solid blue;
+                        color: blue;
+                        outline: none;
+                }
+
+                #upload {
+                        background: green;
+                        border: 3px solid green;
+                        padding: 12px;
+                        border-radius: 5px;
+                        color: #fff;
+                        font-weight: bold;
+                        font-size: 15px;
+                        margin: 5px 5px;
+                }
+
+                #upload:hover {
+                        background: none;
+                        border: 3px solid green;
+                        color: green;
+                }
+
+                #retrieve {
+                        background: red;
+                        border: 3px solid red;
+                        padding: 12px;
+                        border-radius: 5px;
+                        color: #fff;
+                        font-weight: bold;
+                        font-size: 15px;
+                        margin: 5px 5px;
+                }
+
+                #retrieve:hover {
+                        background: none;
+                        border: 3px solid red;
+                        color: red;
+                        outline: none;
+                }
+
+                #UpProgress {
+                        color: #2196f3;
+                        padding: 7px 7px;
+                        font-weight: bold;
+                        font-size: 13px;
+                        border-right: 4px;
+                        margin: 5px 5px;
+                }
+
+                #linktext {
+                        background: #2196f3;
+                        width: 50px;
+                        padding: 9px 7px;
+                        border-top-left-radius: 4px;
+                        border-bottom-left-radius: 4px;
+                        display: inline-block;
+                        color: #fff;
+                        font-weight: bold;
+                        font-size: 13px;
+                }
+
+                #link {
+                        display: inline-block;
+                        width: 100px;
+                        padding: 7px 7px;
+                        border: 2px solid #2196f3;
+                        outline: none;
+                        background: #fff;
+                        font-size: 13px;
+                        color: #2196f3;
+                }
+
+                #copy{
+                        display: inline-block;
+                        width: 50px;
+                        padding: 7px 7px;
+                        background: #2196f3;
+                        border: 2px solid #2196f3;
+                        border-top-right-radius: 4px;
+                        border-bottom-right-radius: 4px;
+                        font-size: 13px;
+                        font-weight: bold;
+                        color: #fff;
+                        outline: none;
+
+                }
+                .action{
+                        position: fixed;
+                        bottom: 50px;
+                        left: 50px;
+                        width: 50px;
+                        height: 50px;
+                        cursor: pointer;
+                        background: #fff;
+                        border-radius: 50%;
+                        box-shadow: 0 5px 5px rgba(0,0,0,0.1);
+                }
+                .action span{
+                        position: relative;
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        color: #a13dea;
+                        font-size: 2rem;
+                        transition: 0.3s ease-in-out;
+                }
+                .action.active span{
+                        transform: rotate(135deg);
+                }
+                .action ul{
+                        position: absolute;
+                        bottom: 55px;
+                        background: #fff;
+                        min-width: 250px;
+                        padding: 20px;
+                        border-radius: 20px;
+                        overflow: 0;
+                        visibility: hidden;
+                        transition: 0.3s;
+                }
+                .action.active ul{
+                        bottom: 65px;
+                        opacity: 1;
+                        visibility: visible;
+                        transition: 0.3s;
+                }
+                .action ul li{
+                        list-style: none;
+                        display: flex;
+                        justify-content: flex-start;
+                        align-items: center;
+                        padding: 10px 0;
+                        transition: 0.3s;
+                }
+                .action ul li:hover{
+                        font-weight: 600;
+                }
+                .action ul li:not(:last-child){
+                        border-bottom: 1px solid rgba(0,0,0,0.1);
+                }
+
+        </style>
+        <center>
+                <div class="content">
+                <span id="nameI">File name :</span><input type="text" id="namebox" placeholder="Enter the name of video.." data-bs-toggle="tooltip" data-bs-placement="bottom" title="File name(eg= xyz)"/><input type="text" id="exename" placeholder="Extension.." data-bs-toggle="tooltip" data-bs-placement="bottom" title="File Extension (eg= .zip/.apk/.png/)"/><br /><br /><br />
+                <img id="myimg" data-bs-toggle="tooltip" data-bs-placement="top" title="Preview of File" /><br />
+                <span id="UpProgress"></span>
+                <br /><br />
+                <button id="select" data-bs-toggle="tooltip" data-bs-placement="top" title="Select File">Select File</button>
+                <button id="upload" data-bs-toggle="tooltip" data-bs-placement="top" title="Upload File">Upload File</button>
+                <br /><br />
+                <span id="linktext">Link :</span><input id="link" placeholder="Your link appears here.." data-bs-toggle="tooltip" data-bs-placement="left" title="Url"><button id="copy" data-bs-toggle="tooltip" data-bs-placement="top" title="Copy to clipborad"><i class="far fa-copy" ></i></button>
+                </div>
+                <div class="action" onclick="toggle()">
+                        <span>+</span>
+                        <ul>
+                                <li data-bs-toggle="modal" data-bs-target="#exampleModal">Embed Item</li>
+                                <li data-bs-toggle="modal" data-bs-target="#usaModal">Send via Email</li>
+                                <li data-bs-toggle="modal" data-bs-target="#rxeModal">Help ?</li>
+                        </ul>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                                <div class="modal-content">
+                                        <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Embed Item</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                                Copy the code and paste in your html page.<br />
+                                                <textarea name="embed-item" id="textr" rows="2" cols="25"></textarea>
+                                        </div>
+                                        <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ok</button>
+                                                <button type="button" class="btn btn-primary" onclick="copy()">Copy</button>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="usaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                                <div class="modal-content">
+                                        <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Send Via Email</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                                
+                                        </div>
+                                        <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ok</button>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+                <!-- HELP -->
+                <div class="modal fade" id="rxeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                                <div class="modal-content">
+                                        <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Help</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                                
+                                        </div>
+                                        <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ok</button>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+
+        <!--<button id="retrieve">Retrieve Video</button>-->
+        <!--------------------------FIREBASE LIBRARIES-------------------------------->
+        <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-storage.js"></script>
+        <script id="MainScript">
+                //-----------------VARIABLES-----------------//
+                var ImgName, ImgUrl, FileEx;
+                var files = [];
+                var reader = new FileReader();
+
+                //----------------CONFIGURATION------------------//
+                var firebaseConfig = {
+                        apiKey: "AIzaSyCHjcXg1N6bQlXGMQa8uB7rDjBhEDX0r6s",
+                        authDomain: "fir-javas-a282c.firebaseapp.com",
+                        databaseURL: "https://fir-javas-a282c-default-rtdb.firebaseio.com",
+                        projectId: "fir-javas-a282c",
+                        storageBucket: "fir-javas-a282c.appspot.com",
+                        messagingSenderId: "507372768409",
+                        appId: "1:507372768409:web:3bf174c1d02c5dc13a7c08"
+                };
+                // Initialize Firebase
+                firebase.initializeApp(firebaseConfig);
+
+                //---------------------SELECTION PROCESS---------------------------------//
+                document.getElementById("select").onclick = function(e) {
+
+                        var input = document.createElement('input');
+                        var result = document.getElementById('myimg');
+                        input.type = 'file';
+
+                        input.onchange = e => {
+                                files = e.target.files;
+                                reader = new FileReader();
+                                reader.onload = function() {
+                                        result.src = reader.result;
+                                }
+                                reader.readAsDataURL(files[0]);
+                        }
+                        input.click();
+                }
+
+                //-----------------------UPLOAD PROCESS------------------------------------//
+                document.getElementById('upload').onclick = function() {
+                        ImgName = document.getElementById('namebox').value;
+                        FileEx = document.getElementById('exename').value;
+                        var uploadTask = firebase.storage().ref('Files/' + ImgName + FileEx).put(files[0]);
+
+                        uploadTask.on('state_changed', function(snapshot) {
+                                        var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                                        document.getElementById('UpProgress').innerHTML = 'Uploaded : ' + progress + '%';
+                        },
+    
+                                function(error) {
+                                        alert('error in uploading the file');
+                                },
+
+                                function() {
+                                        uploadTask.snapshot.ref.getDownloadURL().then(function(url) {
+                                                ImgUrl = url;
+
+                                                firebase.database().ref('Files/' + ImgName).set({
+                                                        Name: ImgName,
+                                                        Link: ImgUrl
+                                                });
+                                                alert('file uploaded successfully');
+                                                document.getElementById('link').value = ImgUrl ;
+                                                document.getElementById('textr').value = '<iframe src="'+ImgUrl+'" frameborder="0"></iframe>';
+                                        });
+                                });
+                }
+                
+                //-----------------------------Retrival Process----------------------//
+                //document.getElementById('retrieve').onclick = function(){
+                       // ImgName = document.getElementById('namebox').value;
+                       // firebase.database().ref('Pictures/' +ImgName).on('value', function(snapshot){
+                               // document.getElementById('myimg').src = snapshot.val().Link;
+                      //  });
+                //}
+                //-----------------------COPY PROCESS------------------------------//
+                document.getElementById("copy").onclick = function() {
+
+                        var copyText = document.getElementById('link');
+
+                        copyText.select();
+                        document.execCommand('copy');
+                        alert('Copied');
+                }
+                //----------------------TOOLTIP----------------------//
+                var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+                var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl)
+                })
+                //-----------------------MENU-------------------------//
+                function toggle(){
+                var action = document.querySelector('.action');
+                action.classList.toggle('active')
+                }
+                //---------------------------------------------------//
+                function copy(){
+                        var textlink = document.getElementById('textr');
+                        
+                        textlink.select();
+                        document.execCommand('copy');
+                        alert('Copid');
+                }
+                
+        </script>
+</body>
+
+</html>
