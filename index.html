@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Uploader by Raunak Raj</title>
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="style.css" />
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+
+<body>
+        <center>
+                <div id="content" class="container-fluid">
+                        <span id="nameI" class="container-fluid">File name :</span><input type="text" id="namebox" placeholder="Enter the name of video.." data-bs-toggle="tooltip" data-bs-placement="bottom" title="File name(eg= xyz)" class="img-fluid" /><input type="text" id="exename" placeholder="Extension.." data-bs-toggle="tooltip" data-bs-placement="bottom" title="File Extension (eg= .zip/.apk/.png/)" class="img-fluid" /><br /><br /><br />
+                        <img id="myimg" data-bs-toggle="tooltip" data-bs-placement="top" title="Preview of File" /><br />
+                        <span id="UpProgress" class="container-fluid"></span>
+                        <br /><br />
+                        <button id="select" data-bs-toggle="tooltip" data-bs-placement="top" title="Select File" required>Select File</button>
+                        <button id="upload" data-bs-toggle="tooltip" data-bs-placement="top" title="Upload File">Upload File</button>
+                        <br /><br />
+                        <span id="linktext" class="container-fluid">Link :</span><input id="link" placeholder="Your link appears here.." data-bs-toggle="tooltip" data-bs-placement="left" title="Url" class="container-fluid" readonly><button id="copy" data-bs-toggle="tooltip" data-bs-placement="top" title="Copy to clipborad" class="container-fluid"><i class="far fa-copy"></i></button>
+                </div>
+                <div class="action" onclick="toggle()">
+                        <span>+</span>
+                        <ul>
+                                <li data-bs-toggle="modal" data-bs-target="#exampleModal">Embed Item</li>
+                                <li data-bs-toggle="modal" data-bs-target="#usaModal">Send via Email</li>
+                                <li data-bs-toggle="modal" data-bs-target="#linkModal">Short your link</li>
+                                <li data-bs-toggle="modal" data-bs-target="#rxeModal">Help ?</li>
+                        </ul>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                                <div class="modal-content">
+                                        <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Embed Item</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                                Copy the code and paste in your html page.<br />
+                                                <textarea class="container-fluid" name="embed-item" id="textr" rows="2" cols="25" style="background: black; border: #2196f3; color: red;" readonly></textarea>
+                                        </div>
+                                        <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ok</button>
+                                                <button type="button" class="btn btn-primary" onclick="copy()">Copy</button>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="usaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                                <div class="modal-content">
+                                        <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Send Via Email</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                                Our developer is working for very soon it will added.
+                                        </div>
+                                        <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ok</button>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="linkModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                                <div class="modal-content">
+                                        <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Send Via Email</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                                <!-- Our developer is working for very soon it will added.-->
+                                                <iframe src="http://soul-url.ml/" frameborder="0" class="img-fluid"></iframe>
+                                        </div>
+                                        <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ok</button>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+                <!-- HELP -->
+                <div class="modal fade" id="rxeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                                <div class="modal-content">
+                                        <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Help</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                                <h5 align="left">On this page</h5>
+                                                <hr />
+                                                <ul type="none">
+                                                        <li align="left"><a href="#1" style="text-decoration: none;color: darkgray;">File Names & Extension</a></li>
+                                                        <li align="left"><a href="#2" style="text-decoration: none;color: darkgray;">Selecting Files</a></li>
+                                                        <li align="left"><a href="#3" style="text-decoration: none;color: darkgray;">Uploading Files</a></li>
+                                                        <li align="left"><a href="#4" style="text-decoration: none;color: darkgray;">URL & Copy Buttonn</a></li>
+                                                        <li align="left"><a href="#5" style="text-decoration: none;color: darkgray;">Menu</a></li>
+                                                        <ul type="none">
+                                                                <li align="left"><a href="#6" style="text-decoration: none;color: darkgray;">Embed Item</a></li>
+                                                                <li align="left"><a href="#7" style="text-decoration: none;color: darkgray;">Email</a></li>
+                                                        </ul>
+                                                </ul>
+                                                <br />
+                                                <a name="1"></a>
+                                                <h2 align="left">File Names & Extension</h2>
+                                                <section class="section">
+                                                        <img src="img/pic1.jpg" class="img-fluid" alt="Files Names"><br />
+                                                        <p align="left">
+                                                                Here in above picture we see there are two input fields ,in first we put our <span style="color: deeppink;">file eg.:</span> <span class="bkr">xyz</span> . In second field we put <span style="color: deeppink;">file extensions eg.:</span> <span class="bkr">.png/.apk/.zip/etc</span> .
+                                                        </p>
+                                                </section>
+                                                <br />
+                                                <a name="2"></a>
+                                                <h2 align="left">Selecting Files</h2>
+                                                <section class="section">
+                                                        <img class="img-fluid" src="img/pic2.jpg" alt="Selecting Files" />
+                                                        <p align="left">
+                                                                In the above image you see a button ,this button is used for <span class="bkr">selecting files</span> from <span style="color:deeppink;">your storage</span> for <span class="bkr">uploading</span>.
+                                                        </p>
+                                                </section>
+                                                <br />
+                                                <a name="3"></a>
+                                                <h2 align="left">Uploading Files</h2>
+                                                <section class="section">
+                                                        <img class="img-fluid" src="img/pic3.jpg" alt="Uploading" />
+                                                        <p>
+                                                                In above picture, we can see a <span style="color: deeppink;">green button</span>. It is used for <span class="bkr">uploading</span> the <span class="bkr">selected file</span>.
+                                                        </p>
+                                                </section>
+                                                <br />
+                                                <a name="4"></a>
+                                                <h2 align="left">URL & Copy Button</h2>
+                                                <section class="section">
+                                                        <img class="img-fluid" src="img/pic5.jpg" />
+                                                        <p>
+                                                                In above image, there is <span style="color: deeppink;">input & button</span>, in input place the <span class="bkr">url</span> of <span class="bkr">uploaded file</span> are appears. And the button help you to <span class="bkr">copy the url</span>.
+                                                        </p>
+                                                </section>
+                                                <br />
+                                                <a name="5"></a>
+                                                <h2 align="left">Menu</h2>
+                                                <section class="section">
+                                                        <img class="img-fluid" src="img/pic4.jpg" />
+                                                        <p>
+                                                                In picture, we see that there is a <span style="color: deeppink; ">button</span>. This is for open the <span class="bkr">menu</span>. On click the <span style="color: deeppink;">button</span> you got <span class="bkr">menu</span> like shown below:
+                                                        </p>
+                                                        <img class="img-fluid" src="img/pic6.jpg" />
+                                                </section>
+                                                <br />
+                                                <a name="6"></a>
+                                                <h3 align="left">Embed Item</h3>
+                                                <section class="section">
+                                                        <img class="img-fluid" src="img/" />
+                                                </section>
+                                        </div>
+                                        <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ok</button>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+                <h4 style="font-family: 'Amatic SC', cursive;">Made with ♥️ in India</h4>
+                <!--<button id="retrieve">Retrieve Video</button>-->
+                <!--------------------------FIREBASE LIBRARIES-------------------------------->
+                <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+                <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+                <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
+                <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-storage.js"></script>
+                <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-link.js"></script>
+                <script id="MainScript">
+                        //-----------------VARIABLES-----------------//
+                        var ImgName, ImgUrl, FileEx;
+                        var files = [];
+                        var reader = new FileReader();
+
+                        //----------------CONFIGURATION------------------//
+                        var firebaseConfig = {
+                                apiKey: "AIzaSyCHjcXg1N6bQlXGMQa8uB7rDjBhEDX0r6s",
+                                authDomain: "fir-javas-a282c.firebaseapp.com",
+                                databaseURL: "https://fir-javas-a282c-default-rtdb.firebaseio.com",
+                                projectId: "fir-javas-a282c",
+                                storageBucket: "fir-javas-a282c.appspot.com",
+                                messagingSenderId: "507372768409",
+                                appId: "1:507372768409:web:3bf174c1d02c5dc13a7c08"
+                        };
+                        // Initialize Firebase
+                        firebase.initializeApp(firebaseConfig);
+
+                        //---------------------SELECTION PROCESS---------------------------------//
+                        document.getElementById("select").onclick = function(e) {
+
+                                var input = document.createElement('input');
+                                var result = document.getElementById('myimg');
+                                input.type = 'file';
+
+                                input.onchange = e => {
+                                        files = e.target.files;
+                                        reader = new FileReader();
+                                        reader.onload = function() {
+                                                result.src = reader.result;
+                                        }
+                                        reader.readAsDataURL(files[0]);
+                                }
+                                input.click();
+                        }
+
+                        //-----------------------UPLOAD PROCESS------------------------------------//
+                        document.getElementById('upload').onclick = function() {
+                                ImgName = document.getElementById('namebox').value;
+                                FileEx = document.getElementById('exename').value;
+                                var uploadTask = firebase.storage().ref('Files/' + ImgName + FileEx).put(files[0]);
+
+                                uploadTask.on('state_changed', function(snapshot) {
+                                                var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                                                document.getElementById('UpProgress').innerHTML = 'Uploaded : ' + progress + '%';
+                                        },
+
+                                        function(error) {
+                                                alert('error in uploading the file');
+                                        },
+
+                                        function() {
+                                                uploadTask.snapshot.ref.getDownloadURL().then(function(url) {
+                                                        ImgUrl = url;
+
+                                                        firebase.database().ref('Files/' + ImgName).set({
+                                                                Name: ImgName,
+                                                                Link: ImgUrl
+                                                        });
+                                                        alert('file uploaded successfully');
+                                                        document.getElementById('link').value = ImgUrl;
+                                                        document.getElementById('textr').value = '<iframe src="' + ImgUrl + '" frameborder="0"></iframe>';
+                                                });
+                                        });
+                        }
+
+                        //-----------------------------Retrival Process----------------------//
+                        //document.getElementById('retrieve').onclick = function(){
+                        // ImgName = document.getElementById('namebox').value;
+                        // firebase.database().ref('Pictures/' +ImgName).on('value', function(snapshot){
+                        // document.getElementById('myimg').src = snapshot.val().Link;
+                        //  });
+                        //}
+                        //-----------------------COPY PROCESS------------------------------//
+                        document.getElementById("copy").onclick = function() {
+
+                                var copyText = document.getElementById('link');
+
+                                copyText.select();
+                                document.execCommand('copy');
+                                alert('Copied');
+                        }
+                        //----------------------TOOLTIP----------------------//
+                        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+                        var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
+                                return new bootstrap.Tooltip(tooltipTriggerEl)
+                        })
+                        //-----------------------MENU-------------------------//
+                        function toggle() {
+                                var action = document.querySelector('.action');
+                                action.classList.toggle('active')
+                        }
+                        //---------------------------------------------------//
+                        function copy() {
+                                var textlink = document.getElementById('textr');
+
+                                textlink.select();
+                                document.execCommand('copy');
+                                alert('Copid');
+                        }
+                        //--------‐---------RAIN-------‐-///
+                        function createHeart() {
+                                const heart = document.createElement("div");
+                                heart.classList.add("heart");
+
+                                heart.style.left = Math.random() * 100 + "vw";
+                                heart.style.animationDuration = Math.random() * 2 + 3 + "s";
+
+                                heart.innerText = "⭐";
+
+                                document.body.appendChild(heart);
+
+                                setTimeout(() => {
+                                        heart.remove();
+                                }, 5000);
+                        }
+
+                        setInterval(createHeart, 300);
+                </script>
+</body>
+
+</html>
